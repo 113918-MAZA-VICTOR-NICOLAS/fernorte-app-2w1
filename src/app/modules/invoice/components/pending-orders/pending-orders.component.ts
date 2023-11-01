@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { OrderService } from '../../services/order.service';
 import { Order } from '../../models/order';
 import { Detail } from '../../models/Detail';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'fn-pending-orders',
@@ -47,6 +48,7 @@ export class PendingOrdersComponent implements OnInit {
     this.SelectedDetails = order.detalles;
     this.calculateSubtotal();
     this.isModalOpen = true;
+
   }
 
   closeModal() {

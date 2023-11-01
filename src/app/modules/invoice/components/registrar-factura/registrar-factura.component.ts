@@ -3,12 +3,12 @@ import { OrderService } from '../../services/order.service';
 import { Order } from '../../models/order';
 import { Detail } from '../../models/Detail';
 import { InvoiceService } from '../../services/invoice.service';
-import { DiscountDTO } from '../../models/DiscountDTO';
 import { Client } from '../../models/Clients/Client';
 import { CustomerService } from '../../services/customer.service';
 import { formatDate } from '@angular/common';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+import { DiscountDto } from '../../models/DiscountDto';
 registerLocaleData(localeEs);
 
 @Component({
@@ -20,7 +20,7 @@ export class RegistrarFacturaComponent {
   orderSelected: Order | undefined;
   //array de detalles de la factura
   details: Detail[] | undefined;
-  discounts: DiscountDTO[] | undefined;
+  discounts: DiscountDto[] | undefined;
   totalPedido: number = 0;
   clients?: Client[] = [];
   clientSelected?: Client;
@@ -103,9 +103,11 @@ export class RegistrarFacturaComponent {
   calculateDiscounted() {
     if (this.discounts) {
       this.discounts.forEach(element => {
-        element.discounted = this.totalPedido * element.porcentaje / 100;
+        element.discounted = (this.totalPedido * element.porcentaje!) / 100;
       });
     }
   }
+  realizarPago(){
 
+  }
 }
