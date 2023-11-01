@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { PaymentMethod } from '../models/payment-method';
-import { Payment } from '../models/payment'; //test
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { payDetailDTO } from '../models/payDetailDTO';

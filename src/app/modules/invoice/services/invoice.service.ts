@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { requestInvoiceDto } from '../models/requestInvoiceDTO';
 import {  InvoiceDto } from '../models/InvoiceDto';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,7 @@ export class InvoiceService {
   request?: requestInvoiceDto;
   invoices: InvoiceDto[] = [];
 
-  newInvoice?: Invoice;
+  newInvoice?: InvoiceDto;
   totalPay: number = 0;
 
   constructor(private http: HttpClient) { }

@@ -20,7 +20,7 @@
             <input
               type="text"
               name=""
-              id=""
+              id="nombreCliente"
               value="Ernesto j."
               disabled
               class="input-text"
@@ -31,7 +31,7 @@
             <input
               type="text"
               name=""
-              id=""
+              id="fechaFactura"
               value="12/12/2021"
               disabled
               class="input-text"
@@ -42,7 +42,7 @@
             <input
               type="text"
               name=""
-              id=""
+              id="tipoDni"
               value="Dni"
               disabled
               class="input-text"
@@ -55,7 +55,7 @@
             <input
               type="text"
               name=""
-              id=""
+              id="tipoCliente"
               value="Consumidor Final"
               disabled
               class="input-text"
@@ -66,7 +66,7 @@
             <input
               type="text"
               name=""
-              id=""
+              id="domicilio"
               value=""
               disabled
               class="input-text"
@@ -77,7 +77,7 @@
             <input
               type="text"
               name=""
-              id=""
+              id="nroDoc"
               value="45827404"
               disabled
               class="input-text"
@@ -108,9 +108,24 @@
               <td>{{ det.idProducto }}</td>
               <td>{{ det.descripcion }}</td>
               <td>{{ det.cantidad }}</td>
-              <td>{{ det.precioUnitario }}</td>
-              <td>{{ det.subtotal }}</td>
-
+              <td>{{ det.precioUnitario  }}</td>
+              <td>{{ det.subtotal}}</td>
+          </tr>
+      </tbody>
+      </table>
+      <table class="table border sombra">
+        <thead>
+          <tr>
+              <th>Descripcion</th>
+              <th>Porcentaje</th>
+              <th>Descuento</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let disc of discounts">
+              <td>{{ disc.descripcion }}</td>
+              <td>{{ disc.porcentaje }}</td>
+              <td>{{ disc.discounted | currency}} </td>
           </tr>
       </tbody>
       </table>

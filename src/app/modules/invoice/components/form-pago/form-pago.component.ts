@@ -1,8 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PaymentMethodService } from '../../services/payment-method.service';
-import { PaymentMethod } from '../../models/payment-method';
-import { Payment } from '../../models/payment';
-import { PmDTO } from '../../models/pm-dto';
 import { paymentMethodDTO } from '../../models/paymentMethodDTO';
 import { payDetailDTO } from '../../models/payDetailDTO';
 
@@ -22,15 +19,17 @@ export class FormPagoComponent {
 
 
 
+  //listado de las formas de pago 
   listTypePayment: paymentMethodDTO[] = [];
 
   listPaids: payDetailDTO[] = [];
+  //un solo pago realizado que se adiciona a la lista
   pay: payDetailDTO = new payDetailDTO();
 
 
-  @Input() resto: number = 0;
+  resto: number = 0;
   @Input() total: number = 0;
-  @Output() onCalcularRestante = new EventEmitter<number>();
+  @Output() restoEmit = new EventEmitter<number>();
 
   constructor(private formasPagoService: PaymentMethodService, private paidservice: PaymentMethodService) {
     formasPagoService.obtenerFormasPago().subscribe((response: paymentMethodDTO[]) => {
@@ -42,6 +41,7 @@ export class FormPagoComponent {
     );
   }
 
+  // agrega pagos a la lista de pagos
 
   addPay() {
   const newPay = new payDetailDTO();
